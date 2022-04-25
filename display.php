@@ -15,7 +15,13 @@ include 'connect.php';
     </head>
     <body>
         <div class="container">
-            <button class="btn btn-primary my-5"><a href="user.php" class="text-light">Add user</a></button>
+            <button class="btn btn-primary my-5">
+                <a href="user.php" class="text-light">Add user</a>
+            </button>
+            <button class="btn btn-primary">
+                <a href="search.php" class="text-light">Search</a>
+            </button>
+            
         <table class="table">
             <thead>
                 <tr>
@@ -34,17 +40,14 @@ include 'connect.php';
 $sql = "Select * from crud";
 $result = mysqli_query($conn,$sql);
 if($result) {
-    // $row = mysqli_fetch_assoc($result);
-    // echo $row['name'];
-    // $row = mysqli_fetch_assoc($result);
-    // echo $row['name'];
+    
 
     while($row = mysqli_fetch_assoc($result)) {
         $id = $row['id'];
         $name = $row['name'];
         $email = $row['email'];
         $mobile= $row['mobile'];
-        $password = $row['mobile'];
+        $password = $row['password'];
 
         echo '<tr>
             <th scope="row">'.$id.'</th>
@@ -52,13 +55,14 @@ if($result) {
             <td>'.$email.'</td>
             <td>'.$mobile.'</td>
             <td>'.$password.'</td>
-            <td>
+            <td> 
                 <button class="btn btn-primary"><a href="update.php?updateid='.$id.'" class="text-light">Update</a></button>
                 <button class="btn btn-danger"><a href="delete.php?deleteid='.$id.'" class="text-light">Delete</a></button>
             </td>
         </tr>';
     }
 }
+
 
 ?>
             </tbody>

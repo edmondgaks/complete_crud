@@ -13,3 +13,17 @@ if(isset($_GET['deleteid'])) {
         die(mysqli_error($conn));
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
